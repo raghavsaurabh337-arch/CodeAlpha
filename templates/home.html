@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyShop Home</title>
+
+  
+     <link rel="stylesheet" href="{% static 'home.css' %}">
+
+    
+</head>
+<body>
+
+<header>
+
+    <div class="logo">
+        <h2>MyShop</h2>
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+        <a href="product.html">Products</a>
+        <a href="cart.html">
+            <i class="fa-solid fa-cart-shopping"></i> Cart
+        </a>
+        <a href="login.html">Login</a>
+
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <h1>Welcome To MyShop</h1>
+
+    <p>Best Deals On Electronics & Fashion</p>
+
+    <button>Shop Now</button>
+
+</section>
+
+
+<section class="search">
+
+    <input
+        type="text"
+        placeholder="Search Products..."
+        id="search">
+
+</section>
+
+
+<section class="products">
+
+    <div class="card">
+
+        <img src="images/laptop.jpg" alt="Laptop">
+
+        <h3>Laptop</h3>
+
+        <p class="price">₹55,000</p>
+
+        <button>Add To Cart</button>
+
+        <a href="product.html">
+            <button class="details">View Details</button>
+        </a>
+
+    </div>
+
+
+    <div class="card">
+
+        <img src="images/mobile.jpg" alt="Mobile">
+
+        <h3>Mobile</h3>
+
+        <p class="price">₹22,000</p>
+
+        <button>Add To Cart</button>
+
+        <a href="product.html">
+            <button class="details">View Details</button>
+        </a>
+
+    </div>
+
+
+    <div class="card">
+
+        <img src="images/headphone.jpg" alt="Headphone">
+
+        <h3>Headphone</h3>
+
+        <p class="price">₹2,999</p>
+
+        <button>Add To Cart</button>
+
+        <a href="product.html">
+            <button class="details">View Details</button>
+        </a>
+
+    </div>
+
+
+    <div class="card">
+
+        <img src="images/watch.jpg" alt="Watch">
+
+        <h3>Smart Watch</h3>
+
+        <p class="price">₹4,999</p>
+
+        <button>Add To Cart</button>
+
+        <a href="product.html">
+            <button class="details">View Details</button>
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>MyShop</h3>
+
+    <p>© 2026 All Rights Reserved</p>
+
+</footer>
+
+</body>
+</html>
+```
