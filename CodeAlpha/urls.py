@@ -22,4 +22,6 @@ from CodeAlpha import frontend_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',frontend_view.home,name='home'),
+    path('login/',frontend_view.login,name='login'),
+    path('register/',frontend_view.register,name='register'),
 ]
