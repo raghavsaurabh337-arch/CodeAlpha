@@ -7,3 +7,5 @@ def login(request):
     return render(request, 'login.html')
 def register(request):
     return render(request, 'register.html')
+def products(request):
+    return render(request, 'products.html')

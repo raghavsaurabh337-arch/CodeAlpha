@@ -13,79 +13,87 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow py-8">
     <div class="container">
 
         <!-- Logo -->
-        <a class="navbar-brand fw-bold fs-3" href="#">
+        <a class="navbar-brand fw-bold fs-2 me-4" href="{% url 'home' %}">
             <i class="fa-solid fa-bag-shopping text-warning"></i>
             FashionHub
         </a>
 
-        <!-- Mobile Button -->
+        <!-- Mobile Toggle -->
         <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Menu -->
         <div class="collapse navbar-collapse" id="navbarNav">
 
-            <!-- Left -->
-            <ul class="navbar-nav me-auto">
+            <!-- Left Menu -->
+            <ul class="navbar-nav align-items-center">
 
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">
+                <li class="nav-item mx-1">
+                    <a class="nav-link active" href="{% url 'home' %}">
                         <i class="fa-solid fa-house"></i> Home
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="product.html">
+                <li class="nav-item mx-1">
+                    <a class="nav-link" href="{% url 'products' %}">
                         <i class="fa-solid fa-shirt"></i> Products
                     </a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item mx-1">
                     <a class="nav-link" href="product-detail.html">
-                        <i class="fa-solid fa-circle-info"></i> Product Details
+                        <i class="fa-solid fa-circle-info"></i> Details
                     </a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item mx-1">
                     <a class="nav-link" href="cart.html">
                         <i class="fa-solid fa-cart-shopping"></i>
                         Cart
-                        <span class="badge bg-warning text-dark">0</span>
+                        <span class="badge bg-warning text-dark rounded-pill">0</span>
                     </a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item mx-1">
                     <a class="nav-link" href="checkout.html">
-                        <i class="fa-solid fa-credit-card"></i>
-                        Order
+                        <i class="fa-solid fa-credit-card"></i> Order
                     </a>
                 </li>
 
             </ul>
 
-            <!-- Right -->
-            <ul class="navbar-nav">
+            <!-- Search -->
+            <form class="d-flex mx-auto w-50">
+                <input class="form-control rounded-start-pill"
+                       type="search"
+                       placeholder="Search for products...">
 
-                <li class="nav-item">
-                    <a class="btn btn-outline-light me-2"href="{% url 'login' %}">
-                        Login
-                    </a>
-                </li>
+                <button class="btn btn-warning rounded-end-pill px-4"
+                        type="submit">
+                    <i class="fa-solid fa-search"></i>
+                </button>
+            </form>
 
-                <li class="nav-item">
-                   <a class="btn btn-warning" href="{% url 'register' %}">
-                     Register
-                    </a>
-                </li>
+            <!-- Right Buttons -->
+            <div class="d-flex align-items-center">
 
-            </ul>
+                <a href="{% url 'login' %}"
+                   class="btn btn-outline-light me-2 px-4">
+                    Login
+                </a>
+
+                <a href="{% url 'register' %}"
+                   class="btn btn-warning px-4">
+                    Register
+                </a>
+
+            </div>
 
         </div>
 
@@ -98,44 +106,56 @@
 
     <div class="row text-center">
 
+        <!-- Women's Fashion -->
         <div class="col-md-3">
-            <div class="card shadow-sm">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500"
-                    class="card-img-top" height="250">
-                <div class="card-body">
-                    <h5>Women's Fashion</h5>
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500"
+                        class="card-img-top" height="250">
+                    <div class="card-body">
+                        <h5>Women's Fashion</h5>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
 
+        <!-- Men's Fashion -->
         <div class="col-md-3">
-            <div class="card shadow-sm">
-                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500"
-                    class="card-img-top" height="250">
-                <div class="card-body">
-                    <h5>Men's Fashion</h5>
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500"
+                        class="card-img-top" height="250">
+                    <div class="card-body">
+                        <h5>Men's Fashion</h5>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
 
+        <!-- Kids Wear -->
         <div class="col-md-3">
-            <div class="card shadow-sm">
-                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500"
-                    class="card-img-top" height="250">
-                <div class="card-body">
-                    <h5>Kids Wear</h5>
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500"
+                        class="card-img-top" height="250">
+                    <div class="card-body">
+                        <h5>Kids Wear</h5>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
 
+        <!-- Accessories -->
         <div class="col-md-3">
-            <div class="card shadow-sm">
-                <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=500"
-                    class="card-img-top" height="250">
-                <div class="card-body">
-                    <h5>Accessories</h5>
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="card shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=500"
+                        class="card-img-top" height="250">
+                    <div class="card-body">
+                        <h5>Accessories</h5>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
 
     </div>
@@ -161,7 +181,7 @@
             <div class="col-md-2 mb-4">
                 <h5>Quick Links</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+                    <li><a href=" href="{% url 'home' %} class="text-white text-decoration-none">Home</a></li>
                     <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
                     <li><a href="#" class="text-white text-decoration-none">Categories</a></li>
                     <li><a href="#" class="text-white text-decoration-none">Offers</a></li>
