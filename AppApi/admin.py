@@ -5,7 +5,7 @@ from .models import Register
 
 @admin.register(Register)
 class RegisterAdmin(admin.ModelAdmin):
-    list_display = ("id","full_name","email","mobile","created_at",)
+    list_display = ("id","full_name","email","mobile","created_at",'password')
 
     search_fields = ("full_name","email","mobile", )
 

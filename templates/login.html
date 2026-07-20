@@ -10,7 +10,7 @@
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
-{% include "header.html" %} 
+
 
 <body class="bg-light">
 
@@ -29,7 +29,8 @@
                         Login
                     </h2>
 
-                    <form>
+                    <form method="POST">
+                        {% csrf_token %}
 
                         <!-- Email -->
 
@@ -46,6 +47,7 @@
                                 </span>
 
                                 <input type="email"
+                                name="email"
                                 class="form-control"
                                 placeholder="Enter your email">
 
@@ -68,6 +70,7 @@
                                 </span>
 
                                 <input type="password"
+                                name="password"
                                 class="form-control"
                                 placeholder="Enter password">
 
@@ -134,5 +137,4 @@
 
 </body>
 
-{% include "footer.html" %} 
 </html>

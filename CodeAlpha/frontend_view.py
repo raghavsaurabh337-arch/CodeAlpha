@@ -1,12 +1,55 @@
 from django.shortcuts import render ,redirect
-
+from AppApi.models import Register
+from django.contrib.auth.hashers import make_password
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.hashers import check_password
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
-def login(request):
-    return render(request, 'login.html')
+
+
+
+
 def register(request):
-    return render(request, 'register.html')
+
+    if request.method == "POST":
+
+        Register.objects.create(
+            full_name=request.POST["full_name"],
+            email=request.POST["email"],
+            mobile=request.POST["mobile"],
+            password=request.POST["password"]
+        )
+
+        return redirect("login.html")
+
+    return render(request, "register.html")
+
+
+def login(request):
+
+    if request.method == "POST":
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+
+        user = Register.objects.filter(
+            email=email,
+            password=password
+        ).first()
+
+        if user:
+            return redirect("home")
+
+    return render(request, "login.html")
+
+
+
+
+
+
+
+
 def products(request):
     return render(request, 'products.html')
 def products_details(request):

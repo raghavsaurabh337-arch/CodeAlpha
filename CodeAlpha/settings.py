@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'AppApi',
     'rest_framework',
     
+    
+]
+AUTHENTICATION_BACKEND=[
+     'django.contrib.auth.backend.modelbackend'
 ]
 
 MIDDLEWARE = [
