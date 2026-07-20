@@ -15,3 +15,11 @@ def cart(request):
     return render(request, 'cart.html')
 def order(request):
     return render(request, 'order.html')
+def women(request):
+    return render(request, 'women.html')
+def men(request):
+    return render(request, 'men.html')
+def kids(request):
+    return render(request, 'kids.html')
+def Accessories(request):
+    return render(request, 'Accessories.html')

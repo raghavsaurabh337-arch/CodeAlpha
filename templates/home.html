@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
 {% include "header.html" %} 
 <section class="container my-5">
 
@@ -22,7 +23,7 @@
 
         <!-- Women's Fashion -->
         <div class="col-md-3">
-            <a href="#" class="text-decoration-none text-dark">
+            <a href="{% url 'women' %}" class="text-decoration-none text-dark">
                 <div class="card shadow-sm">
                     <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500"
                         class="card-img-top" height="250">
@@ -35,7 +36,7 @@
 
         <!-- Men's Fashion -->
         <div class="col-md-3">
-            <a href="#" class="text-decoration-none text-dark">
+            <a href="{% url 'men' %}" class="text-decoration-none text-dark">
                 <div class="card shadow-sm">
                     <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500"
                         class="card-img-top" height="250">
@@ -48,7 +49,7 @@
 
         <!-- Kids Wear -->
         <div class="col-md-3">
-            <a href="#" class="text-decoration-none text-dark">
+            <a href="{% url 'kids' %}" class="text-decoration-none text-dark">
                 <div class="card shadow-sm">
                     <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500"
                         class="card-img-top" height="250">
@@ -61,7 +62,7 @@
 
         <!-- Accessories -->
         <div class="col-md-3">
-            <a href="#" class="text-decoration-none text-dark">
+            <a href="{% url 'Accessories' %}" class="text-decoration-none text-dark">
                 <div class="card shadow-sm">
                     <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=500"
                         class="card-img-top" height="250">

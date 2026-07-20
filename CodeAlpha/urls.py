@@ -28,6 +28,10 @@ urlpatterns = [
     path('products-details/',frontend_view.products_details,name='products_details'),
     path('cart/',frontend_view.cart,name='cart'),
     path('order/',frontend_view.order,name='order'),
+    path('women/',frontend_view.women,name='women'),
+    path('men/',frontend_view.men,name='men'),
+    path('kids/',frontend_view.kids,name='kids'),
+    path('accessories/',frontend_view.Accessories,name='Accessories'),
     
     
 ]
