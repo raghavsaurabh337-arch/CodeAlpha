@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from CodeAlpha import frontend_view
-
+from AppApi import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,9 @@ urlpatterns = [
     path('login/',frontend_view.login,name='login'),
     path('register/',frontend_view.register,name='register'),
     path('products/',frontend_view.products,name='products'),
+    path('products-details/',frontend_view.products_details,name='products_details'),
+    path('cart/',frontend_view.cart,name='cart'),
+    path('order/',frontend_view.order,name='order'),
+    
+    
 ]

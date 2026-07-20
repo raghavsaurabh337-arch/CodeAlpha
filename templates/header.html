@@ -1,0 +1,88 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow py-8">
+    <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand fw-bold fs-2 me-4" href="{% url 'home' %}">
+            <i class="fa-solid fa-bag-shopping text-warning"></i>
+            FashionHub
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <!-- Left Menu -->
+            <ul class="navbar-nav align-items-center">
+
+                <li class="nav-item mx-1">
+                    <a class="nav-link active" href="{% url 'home' %}">
+                        <i class="fa-solid fa-house"></i> Home
+                    </a>
+                </li>
+
+                <li class="nav-item mx-1">
+                    <a class="nav-link" href="{% url 'products' %}">
+                        <i class="fa-solid fa-shirt"></i> Products
+                    </a>
+                </li>
+
+                <li class="nav-item mx-1">
+                    <a class="nav-link" href="{% url 'products_details' %}">
+                        <i class="fa-solid fa-circle-info"></i> Details
+                    </a>
+                </li>
+
+                <li class="nav-item mx-1">
+                    <a class="nav-link"href="{% url 'cart' %}">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        Cart
+                        <span class="badge bg-warning text-dark rounded-pill">0</span>
+                    </a>
+                </li>
+
+                <li class="nav-item mx-1">
+                    <a class="nav-link" href="{% url 'order' %}">
+                        <i class="fa-solid fa-credit-card"></i> Order
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- Search -->
+            <form class="d-flex mx-auto w-50">
+                <input class="form-control rounded-start-pill"
+                       type="search"
+                       placeholder="Search for products...">
+
+                <button class="btn btn-warning rounded-end-pill px-4"
+                        type="submit">
+                    <i class="fa-solid fa-search"></i>
+                </button>
+            </form>
+
+            <!-- Right Buttons -->
+            <div class="d-flex align-items-center">
+
+                <a href="{% url 'login' %}"
+                   class="btn btn-outline-light me-2 px-4">
+                    Login
+                </a>
+
+                <a href="{% url 'register' %}"
+                   class="btn btn-warning px-4">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</nav>

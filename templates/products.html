@@ -1,7 +1,7 @@
 <!-- Products Section -->
-
+{% include "header.html" %} 
 <section class="container my-5">
-
+{% comment %} 
     <h2 class="text-center fw-bold mb-4">
         Our Products
     </h2>
@@ -26,9 +26,9 @@
 
         </div>
 
-    </div>
+    </div> {% endcomment %}
 
-    <!-- Categories -->
+    {% comment %} <!-- Categories -->
 
     <div class="text-center mb-5">
 
@@ -38,7 +38,7 @@
         <button class="btn btn-outline-success m-1">Kids</button>
         <button class="btn btn-outline-warning m-1">Accessories</button>
 
-    </div>
+    </div> {% endcomment %}
 
     <!-- Products -->
 
@@ -317,3 +317,4 @@
     </div>
 
 </section>
+{% include "footer.html" %}

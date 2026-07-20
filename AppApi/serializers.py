@@ -4,4 +4,10 @@ from rest_framework import serializers
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Register
-        fields = ('full_name', 'email', 'mobile', 'password', 'confirm_password', 'terms')     
+        fields = '__all__' 
+    def validate_email(self, value):
+        if not value.lower().endswith("@gmail.com"):
+            raise serializers.ValidationError(
+                "Email must end with @gmail.com"
+            )
+        return value

@@ -41,10 +41,7 @@
                                     <i class="fa-solid fa-user"></i>
                                 </span>
 
-                                <input type="text"
-                                       name="full_name"
-                                       class="form-control"
-                                       placeholder="Enter your full name"
+                                <input type="text"name="full_name"class="form-control" placeholder="Enter your full name"
                                        required>
                             </div>
                         </div>
@@ -58,11 +55,12 @@
                                     <i class="fa-solid fa-envelope"></i>
                                 </span>
 
-                                <input type="email"
-                                       name="email"
-                                       class="form-control"
-                                       placeholder="Enter your email"
-                                       required>
+                              <input
+                                    type="email" name="email"
+                                    class="form-control"placeholder="example@gmail.com" pattern="[a-zA-Z0-9._%+-]+@gmail\.com"
+                                    title="Please enter a valid Gmail address"
+                                    required
+                              >
                             </div>
                         </div>
 
@@ -92,8 +90,7 @@
                                     <i class="fa-solid fa-lock"></i>
                                 </span>
 
-                                <input type="password"
-                                       name="password"
+                                <input type="password" name="password"
                                        class="form-control"
                                        placeholder="Create password"
                                        required>
