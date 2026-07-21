@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARU.com</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            width:100%;
+            height:100vh;
+            background: url("{% static 'images/base.jpg' %}") no-repeat center center;
+            background-size: cover;
+        }
+
+        .login-btn{
+            position:absolute;
+            top:84%;
+            left:79%;
+            transform:translate(-50%,-50%);
+            padding:12px 30px;
+            background:rgb(249, 250, 250);
+            color:rgb(6, 110, 246);
+            text-decoration:none;
+            border-radius:14px;
+            font-size:25px;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="link">
+
+        <a href="{% url 'login' %}" class="login-btn">Login</a>
+    </div>
+
+</body>
+</html>
