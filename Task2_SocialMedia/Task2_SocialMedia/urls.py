@@ -25,4 +25,9 @@ urlpatterns = [
     path('', front_views.base, name='base'),
     path('login/', front_views.login, name='login'),
     path('register/', front_views.register, name='register'),
+    path('hearder/', front_views.hearder, name='hearder'),
+    path('home/', front_views.home, name='home'),
+    path('navbar/', front_views.navbar, name='navbar'),
+    path('profile/', front_views.profile, name='profile'),
+    path('messages/', front_views.massage, name='messages'),
 ]
