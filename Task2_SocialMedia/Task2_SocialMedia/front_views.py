@@ -13,6 +13,6 @@ def home(request):
 def navbar(request):
      return render(request, 'navbar.html')
 def profile(request):
-     return redirect(request, 'profile.html')
+     return render(request, 'profile.html')
 def massage(request):
      return render(request, 'massage.html')

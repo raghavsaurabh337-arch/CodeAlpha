@@ -1,0 +1,44 @@
+/* Bottom Navbar */
+
+.bottom-navbar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.bottom-navbar a{
+    text-decoration: none;
+    color: #333;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-size: 13px;
+}
+
+.bottom-navbar a i{
+    font-size: 24px;
+    margin-bottom: 3px;
+}
+
+.bottom-navbar a:hover{
+    color: #007bff;
+}
+
+/* Page Content */
+
+.content{
+    padding: 20px;
+    padding-bottom: 80px; /* Navbar ke liye space */
+}
