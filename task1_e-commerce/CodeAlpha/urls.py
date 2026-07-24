@@ -21,7 +21,7 @@ from AppApi import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home',frontend_view.home,name='home'),
+    path('home/',frontend_view.home,name='home'),
     path('login/',frontend_view.login,name='login'),
     path('',frontend_view.register,name='register'),
     path('products/',frontend_view.products,name='products'),
