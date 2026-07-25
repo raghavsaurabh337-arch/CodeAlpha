@@ -29,5 +29,6 @@ urlpatterns = [
     path('home/', front_views.home, name='home'),
     path('navbar/', front_views.navbar, name='navbar'),
     path('profile/', front_views.profile, name='profile'),
-    path('messages/', front_views.massage, name='messages'),
+    path('massage/', front_views.massage, name='massage'),
+    path('reels/', front_views.reels, name='reels'),
 ]

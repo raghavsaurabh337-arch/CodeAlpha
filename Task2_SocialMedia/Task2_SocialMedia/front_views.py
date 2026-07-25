@@ -16,3 +16,5 @@ def profile(request):
      return render(request, 'profile.html')
 def massage(request):
      return render(request, 'massage.html')
+def reels(request):
+     return render(request, 'reels.html')
