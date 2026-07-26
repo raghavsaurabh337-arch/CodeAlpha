@@ -29,7 +29,13 @@
                         Login
                     </h2>
 
-                    <form method="POST">
+                    {% if messages %}
+                        {% for msg in messages %}
+                        <div class="alert alert-danger">{{ msg }}</div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="POST" action="{% url 'login' %}">
                         {% csrf_token %}
 
                         <!-- Email -->

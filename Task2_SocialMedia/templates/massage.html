@@ -4,13 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Messages</title>
-
+    <title>Messages - SARU</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
     <link rel="stylesheet" href="{% static 'massages.css' %}">
 </head>
 <body>
 
-    <h1>Not Found Page / Working</h1>
+<div class="msg-header">
+    <a href="{% url 'home' %}" class="back-btn"><i class="fa-solid fa-arrow-left"></i></a>
+    <h2>Messages</h2>
+    <i class="fa-solid fa-pen-to-square"></i>
+</div>
+
+<div class="msg-search">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" placeholder="Search messages...">
+</div>
+
+<div class="msg-list">
+    {% for profile in profiles %}
+    <div class="msg-item">
+        {% if profile.image %}
+            <img src="{{ profile.image.url }}" alt="avatar">
+        {% else %}
+            <img src="{% static 'images/default-avatar.png' %}" alt="avatar">
+        {% endif %}
+        <div class="msg-info">
+            <span class="msg-name">{{ profile.user.username }}</span>
+            <span class="msg-preview">Say hi to {{ profile.user.username }}!</span>
+        </div>
+        <span class="msg-time">now</span>
+    </div>
+    {% empty %}
+    <div class="msg-empty">
+        <i class="fa-regular fa-comment-dots"></i>
+        <p>No messages yet</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% include 'navbar.html' %}
 
 </body>
 </html>

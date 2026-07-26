@@ -1,14 +1,40 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Reels</title>
-     <link rel="stylesheet" href="{% static 'reels.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reels - SARU</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'reels.css' %}">
 </head>
 <body>
-     <h1>Reels is not found</h1>
-     
+
+<div class="reels-header">
+    <h2>Reels</h2>
+    <a href="{% url 'create_post' %}"><i class="fa-solid fa-video"></i></a>
+</div>
+
+<div class="reels-grid">
+    {% for post in posts %}
+        {% if post.image %}
+        <div class="reel-item">
+            <img src="{{ post.image.url }}" alt="reel">
+            <div class="reel-overlay">
+                <i class="fa-solid fa-heart"></i> {{ post.total_likes }}
+            </div>
+        </div>
+        {% endif %}
+    {% empty %}
+    <div class="reels-empty">
+        <i class="fa-solid fa-film"></i>
+        <p>No reels yet</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% include 'navbar.html' %}
+
 </body>
 </html>
