@@ -6,7 +6,7 @@ from django.contrib import messages
 from .models import Profile, Post, Comment
 
 
-# Profile
+
 @login_required(login_url='login')
 def profile_list(request):
     profile, _ = Profile.objects.get_or_create(user=request.user)
@@ -14,14 +14,13 @@ def profile_list(request):
     return render(request, "profile.html", {'profile': profile, 'posts': posts})
 
 
-# Home - show all posts
 @login_required(login_url='login')
 def home(request):
     posts = Post.objects.all().order_by('-created_at')
     return render(request, "home.html", {"posts": posts})
 
 
-# Register
+
 def register(request):
     if request.method == "POST":
         full_name = request.POST.get("full_name")
@@ -51,7 +50,7 @@ def register(request):
     return render(request, "register.html")
 
 
-# Login
+
 def login(request):
     if request.method == "POST":
         email = request.POST.get("email")
@@ -73,13 +72,11 @@ def login(request):
     return render(request, "login.html")
 
 
-# Logout
 def logout(request):
     auth_logout(request)
     return redirect('base')
 
 
-# Create Post
 @login_required(login_url='login')
 def create_post(request):
     if request.method == "POST":
@@ -90,14 +87,13 @@ def create_post(request):
     return render(request, "create_post.html")
 
 
-# Post Detail
+
 @login_required(login_url='login')
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id)
     return render(request, "home.html", {"posts": [post]})
 
 
-# Add Comment
 @login_required(login_url='login')
 def add_comment(request, id):
     post = get_object_or_404(Post, id=id)
@@ -108,7 +104,7 @@ def add_comment(request, id):
     return redirect("home")
 
 
-# Delete Post
+
 @login_required(login_url='login')
 def delete_post(request, id):
     post = get_object_or_404(Post, id=id, user=request.user)
@@ -116,7 +112,7 @@ def delete_post(request, id):
     return redirect('profile')
 
 
-# Like Post
+
 @login_required(login_url='login')
 def like_post(request, id):
     post = get_object_or_404(Post, id=id)
@@ -127,7 +123,7 @@ def like_post(request, id):
     return redirect("home")
 
 
-# Edit Profile
+
 @login_required(login_url='login')
 def edit_profile(request):
     profile, _ = Profile.objects.get_or_create(user=request.user)
@@ -143,14 +139,12 @@ def edit_profile(request):
     return render(request, "edit_profile.html", {"profile": profile})
 
 
-# Messages page
+
 @login_required(login_url='login')
 def massage(request):
     profiles = Profile.objects.exclude(user=request.user)
     return render(request, "massage.html", {"profiles": profiles})
 
-
-# Reels page
 @login_required(login_url='login')
 def reels(request):
     posts = Post.objects.filter(image__isnull=False).exclude(image='').order_by('-created_at')
