@@ -5,7 +5,11 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
 # Create your views here.'
+
+
+
 @login_required(login_url='login') 
 def home(request):
     return render(request, 'home.html')
@@ -24,7 +28,7 @@ def register(request):
             password=request.POST["password"]
         )
 
-        return redirect("login.html")
+        return redirect(login)
 
     return render(request, "register.html")
 
