@@ -1,4 +1,4 @@
-from .models import Register
+from .models import Register, Product
 from rest_framework import serializers
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -11,3 +11,8 @@ class RegisterSerializer(serializers.ModelSerializer):
                 "Email must end with @gmail.com"
             )
         return value
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = '__all__'

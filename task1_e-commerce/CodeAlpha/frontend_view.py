@@ -1,34 +1,31 @@
-from django.shortcuts import render ,redirect
-from AppApi.models import Register
-from django.contrib.auth.hashers import make_password
-from django.contrib import messages
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.hashers import check_password
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
-# Create your views here.'
+
+
+from django.shortcuts import render, redirect
+from AppApi.models import Register, Product
+from django.contrib.auth.hashers import make_password, check_password
 
 
 
-@login_required(login_url='login') 
 def home(request):
-    return render(request, 'home.html')
 
-
+    data = Product.objects.all()
+    return render(request, "home.html", {"data": data})
 
 
 def register(request):
 
     if request.method == "POST":
 
+        password = request.POST["password"]
+
         Register.objects.create(
             full_name=request.POST["full_name"],
             email=request.POST["email"],
             mobile=request.POST["mobile"],
-            password=request.POST["password"]
+            password=make_password(password)
         )
 
-        return redirect(login)
+        return redirect("login")
 
     return render(request, "register.html")
 
@@ -36,39 +33,53 @@ def register(request):
 def login(request):
 
     if request.method == "POST":
+
         email = request.POST.get("email")
         password = request.POST.get("password")
 
-        user = Register.objects.filter(
-            email=email,
-            password=password
-        ).first()
+        user = Register.objects.filter(email=email).first()
 
-        if user:
+        if user and check_password(password, user.password):
+
+            request.session["user_id"] = user.id
+            request.session["user_email"] = user.email
+
             return redirect("home")
+
+        return render(request, "login.html", {"error": "Invalid email or password"})
 
     return render(request, "login.html")
 
 
-
-
-
-
-
-
 def products(request):
-    return render(request, 'products.html')
+    data = Product.objects.all()
+    return render(request, "products.html", {"data": data})
+
+
 def products_details(request):
-    return render(request, 'products_details.html')
+    
+    return render(request, "products_details.html")
+
+
 def cart(request):
-    return render(request, 'cart.html')
+    return render(request, "cart.html")
+
+
 def order(request):
-    return render(request, 'order.html')
+    return render(request, "order.html")
+
+
 def women(request):
-    return render(request, 'women.html')
+    return render(request, "women.html")
+
+
 def men(request):
-    return render(request, 'men.html')
+    return render(request, "men.html")
+
+
 def kids(request):
-    return render(request, 'kids.html')
+    return render(request, "kids.html")
+
+
 def Accessories(request):
-    return render(request, 'Accessories.html')
+    return render(request, "Accessories.html")

@@ -99,9 +99,14 @@
 
                         </div>
 
+                        <!-- Error Message -->
+                        {% if error %}
+                        <div class="alert alert-danger">{{ error }}</div>
+                        {% endif %}
+
                         <!-- Button -->
 
-                        <button class="btn btn-primary w-100">
+                        <button type="submit" class="btn btn-primary w-100">
                             <i class="fa-solid fa-right-to-bracket"></i>
                             Login
                         </button>
