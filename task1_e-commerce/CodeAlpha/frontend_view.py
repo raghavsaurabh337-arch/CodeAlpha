@@ -70,16 +70,20 @@ def order(request):
 
 
 def women(request):
-    return render(request, "women.html")
+    products = Product.objects.filter(gender='female')
+    return render(request, "women.html", {"products": products})
 
 
 def men(request):
-    return render(request, "men.html")
+    products = Product.objects.filter(gender='male')
+    return render(request, "men.html", {"products": products})
 
 
 def kids(request):
-    return render(request, "kids.html")
+    products = Product.objects.filter(gender='kids')
+    return render(request, "kids.html", {"products": products})
 
 
 def Accessories(request):
-    return render(request, "Accessories.html")
+    products = Product.objects.filter(category='Accessories')
+    return render(request, "Accessories.html", {"products": products})

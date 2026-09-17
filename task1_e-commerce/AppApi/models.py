@@ -12,14 +12,23 @@ class Register(models.Model):
 GENDER_CHOICES = [
     ('male', 'Male'),
     ('female', 'Female'),
-    ('unisex', 'Unisex'),
+    ('kids', 'Kids'),
+    ('accessories', 'Accessories'),
+]
+SIZE_CHOICES = [
+    ('M', 'M'),
+    ('L', 'L'),
+    ('X', 'X'),
+    ('XL', 'XL'),
+    ('XXL', 'XXL'),
+   
 ]
 
 class Product(models.Model):
     name = models.CharField(max_length=200)
     category = models.CharField(max_length=100)
     gender = models.CharField(
-        max_length=10,
+        max_length=15,
         choices=GENDER_CHOICES
     )
     description = models.TextField()
@@ -27,7 +36,10 @@ class Product(models.Model):
     discount = models.IntegerField(default=0)
     image = models.ImageField(upload_to='products/')
     stock = models.PositiveIntegerField(default=0)
-    size = models.CharField(max_length=100, blank=True)
+    size = models.CharField(
+            max_length=4,
+            choices=SIZE_CHOICES
+        )
     color = models.CharField(max_length=50, blank=True)
     brand = models.CharField(max_length=100, blank=True)
     sku = models.CharField(max_length=100, unique=True)
