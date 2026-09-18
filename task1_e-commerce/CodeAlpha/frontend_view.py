@@ -1,15 +1,12 @@
 
 
+from itertools import product
+
 from django.shortcuts import render, redirect
 from AppApi.models import Register, Product
 from django.contrib.auth.hashers import make_password, check_password
 
 
-
-def home(request):
-
-    data = Product.objects.all()
-    return render(request, "home.html", {"data": data})
 
 
 def register(request):
@@ -51,10 +48,81 @@ def login(request):
     return render(request, "login.html")
 
 
-def products(request):
-    data = Product.objects.all()
-    return render(request, "products.html", {"data": data})
 
+
+def home(request):
+
+    products = Product.objects.all()
+    for product in products:
+                 product.name = product.name.capitalize()   
+                 product.brand = product.brand.capitalize()
+                 product.size = product.size.upper()    
+                 product.description = product.description.title()
+                 product.color = product.color.capitalize()
+                 product.discount_price = product.price - (product.price * product.discount / 100)
+    return render(request, "home.html", {"products": products})
+
+
+
+def products(request):
+    products = Product.objects.all()
+    for product in products:
+             product.name = product.name.capitalize()
+             product.color = product.color.capitalize()
+             product.brand = product.brand.capitalize()
+             product.size = product.size.upper()
+             product.description = product.description.title()
+                         
+             product.discount_price = product.price - (product.price * product.discount / 100)
+    return render(request, "products.html", {"products": products})
+
+def women(request):
+    products = Product.objects.filter(gender='female')
+    for product in products:
+                 product.name = product.name.capitalize()
+                 product.color = product.color.capitalize()
+                 product.brand = product.brand.capitalize()
+                 product.size = product.size.upper()
+                 product.description = product.description.title()
+                 product.discount_price = product.price - (product.price * product.discount / 100)
+
+    return render(request, "women.html", {"products": products})
+
+
+def men(request):
+    products = Product.objects.filter(gender='male')
+    for product in products:
+                 product.name = product.name.capitalize()
+                 product.color = product.color.capitalize()
+                 product.brand = product.brand.capitalize()
+                 product.size = product.size.upper()
+                 product.description = product.description.title()
+                 product.discount_price = product.price - (product.price * product.discount / 100)
+    return render(request, "men.html", {"products": products})
+
+
+def kids(request):
+    products = Product.objects.filter(gender='kids')
+    for product in products:
+                 product.name = product.name.capitalize()
+                 product.color = product.color.capitalize()
+                 product.brand = product.brand.capitalize()
+                 product.size = product.size.upper()
+                 product.description = product.description.title()
+                 product.discount_price = product.price - (product.price * product.discount / 100)
+    return render(request, "kids.html", {"products": products})
+
+
+def Accessories(request):
+    products = Product.objects.filter(category='Accessories')
+    for product in products:
+                 product.name = product.name.capitalize()
+                 product.color = product.color.capitalize()
+                 product.brand = product.brand.capitalize()
+                 product.size = product.size.upper()
+                 product.description = product.description.title()
+                 product.discount_price =  product.price - (product.price *    product.discount / 100)
+    return render(request, "Accessories.html", {"products": products})
 
 def products_details(request):
     
@@ -69,21 +137,3 @@ def order(request):
     return render(request, "order.html")
 
 
-def women(request):
-    products = Product.objects.filter(gender='female')
-    return render(request, "women.html", {"products": products})
-
-
-def men(request):
-    products = Product.objects.filter(gender='male')
-    return render(request, "men.html", {"products": products})
-
-
-def kids(request):
-    products = Product.objects.filter(gender='kids')
-    return render(request, "kids.html", {"products": products})
-
-
-def Accessories(request):
-    products = Product.objects.filter(category='Accessories')
-    return render(request, "Accessories.html", {"products": products})
