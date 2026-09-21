@@ -1,4 +1,5 @@
-
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
 
 from itertools import product
 
@@ -27,6 +28,7 @@ def register(request):
     return render(request, "register.html")
 
 
+
 def login(request):
 
     if request.method == "POST":
@@ -49,7 +51,7 @@ def login(request):
 
 
 
-
+# @login_required(login_url="login")
 def home(request):
 
     products = Product.objects.all()
