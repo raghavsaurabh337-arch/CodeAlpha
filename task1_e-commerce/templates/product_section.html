@@ -11,7 +11,7 @@
 
         {% for product in products %}
 
-        <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="col-6 col-md-6 col-lg-4 col-xl-3">
 
             <div class="card product-card shadow-sm h-100">
 
@@ -28,7 +28,7 @@
                     {% else %}
 
                     <div class="d-flex align-items-center justify-content-center"
-                         style="height:100px;">
+                         style="height:300px;">
 
                         <span class="text-muted">
                             No Image Available
@@ -54,16 +54,19 @@
 
                 <div class="product-info">
 
-                    <h4 class="product-name">
+                    <h5 class="product-name">
                         <b>{{ product.name }}</b>  <small>Size: <i>{{ product.size }}</i></small> 
                         <br>
                         <small>Color: <i>{{ product.color }}</i></small> 
                         <small>Brand: {{ product.brand }}</small>
                          <small>Gender: {{ product.gender }}</small>
                     </h5>
+
+
                     <p class="product-description">
                         <i>{{ product.description  }}</i>
-                    </p>                    
+                    </p>
+                    
                 <strong>
                             ₹{{ product.discount_price}}
                         </strong>
@@ -79,6 +82,8 @@
                         {% endif %}
 
                     </div>
+
+
                     <!-- Stock -->
 
                     {% if product.stock > 0 %}
