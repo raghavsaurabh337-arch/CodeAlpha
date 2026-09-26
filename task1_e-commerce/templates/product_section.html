@@ -28,7 +28,7 @@
                     {% else %}
 
                     <div class="d-flex align-items-center justify-content-center"
-                         style="height:300px;">
+                         style="height:100px;">
 
                         <span class="text-muted">
                             No Image Available
@@ -54,19 +54,16 @@
 
                 <div class="product-info">
 
-                    <h5 class="product-name">
+                    <h4 class="product-name">
                         <b>{{ product.name }}</b>  <small>Size: <i>{{ product.size }}</i></small> 
                         <br>
                         <small>Color: <i>{{ product.color }}</i></small> 
                         <small>Brand: {{ product.brand }}</small>
                          <small>Gender: {{ product.gender }}</small>
                     </h5>
-
-
                     <p class="product-description">
                         <i>{{ product.description  }}</i>
-                    </p>
-                    
+                    </p>                    
                 <strong>
                             ₹{{ product.discount_price}}
                         </strong>
@@ -82,8 +79,6 @@
                         {% endif %}
 
                     </div>
-
-
                     <!-- Stock -->
 
                     {% if product.stock > 0 %}
